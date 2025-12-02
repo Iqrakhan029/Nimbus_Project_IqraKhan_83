@@ -47,6 +47,7 @@ float fuelCalc(float dist) {
 void logRouteToFile(int route[], int count, float totalDist, float fuel) {
 
     
+    
 FILE *fp = fopen("route_log.txt", "w");
 
     
@@ -55,6 +56,7 @@ if (!fp) {
 printf("Error opening file!\n");
     
 return;
+
     
 }
     
@@ -66,6 +68,7 @@ fprintf(fp, "Route Order (location IDs): ");
 for (int i = 0; i < count; i++)
 fprintf(fp, "%d ", route[i]);
 
+    
 fprintf(fp, "\nTotal Distance: %.2f\nFuel Used: %.2f\n", totalDist, fuel);  
 fclose(fp);  
 
@@ -75,12 +78,14 @@ printf("\nRoute saved to route_log.txt\n");
 
 }
 
+
 int selectNextBin(Bin bins[], int used[], int count, int currentIndex)
 {
 
     
 int index = -1;
 
+    
     
 for (int p = 1; p <= 3; p++) {  
     for (int i = 0; i < count; i++) {  
@@ -120,6 +125,7 @@ int n;
 Bin *bins = NULL;
 
 printf("Enter number of bins: ");  
+
     
 scanf("%d", &n);  
 
@@ -130,6 +136,7 @@ printf("\nEnter bin details:\n");
 for (int i = 0; i < n; i++) {  
     
     printf("\nBin %d\n", i+1);  
+    
     
     printf("Location ID: "); scanf("%d", &bins[i].location_id);  
     
