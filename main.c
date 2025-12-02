@@ -104,3 +104,36 @@ int route[MAX_BINS];
 int routeCount = 0;  
 float totalDist = 0.0f;
 
+int current = 0; 
+used[current] =  1;  
+route[routeCount++]  =  bins[current].location_id;  
+
+
+for (int i = 1; i < n; i++) {  
+    int next = selectNextBin(bins, used, n, current);  
+
+
+    used[next] = 1;  
+    totalDist += distanceCalc(bins[current], bins[next]);  
+    route[routeCount++] = bins[next].location_id;  
+    current = next;  
+}  
+
+float fuelUsed = fuelCalc(totalDist);  
+
+printf("\nOptimal Route Order (Location IDs): ");  
+
+for (int i = 0; i < routeCount; i++) {  
+    printf("%d ", route[i]);  
+}  
+
+printf("\nTotal Distance = %.2f units", totalDist);  
+printf("\nFuel Used = %.2f liters\n", fuelUsed);  
+
+logRouteToFile(route, routeCount, totalDist, fuelUsed);  
+
+free(bins); 
+
+return 0;
+
+}
