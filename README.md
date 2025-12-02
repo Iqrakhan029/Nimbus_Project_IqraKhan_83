@@ -52,3 +52,7 @@ b) Fill level and priority must be integers.
 a) bins.csv – stores all bin information.
 
 b) route_log.txt – stores route and fuel data
+
+
+<img width="829" height="598" alt="image" src="https://github.com/user-attachments/assets/ab2ed59c-a281-4f51-a96f-f3f5f51a90a4" />
+
