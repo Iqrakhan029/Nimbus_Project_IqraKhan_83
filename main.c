@@ -78,4 +78,29 @@ for (int i = 0; i < count; i++) {
 }  
 return index;
 
-}
+} 
+
+int main() {
+int n;
+Bin *bins = NULL;
+
+printf("Enter number of bins: ");  
+scanf("%d", &n);  
+
+bins = (Bin *)malloc(n * sizeof(Bin));  
+printf("\nEnter bin details:\n");  
+
+for (int i = 0; i < n; i++) {  
+    printf("\nBin %d\n", i+1);  
+    printf("Location ID: "); scanf("%d", &bins[i].location_id);  
+    printf("Fill level (0–100): "); scanf("%d", &bins[i].fill_level);  
+    printf("Priority (1=High, 2=Med, 3=Low): "); scanf("%d", &bins[i].priority);  
+    printf("X coordinate: "); scanf("%d", &bins[i].x);  
+    printf("Y coordinate: "); scanf("%d", &bins[i].y);  
+}  
+
+int used[MAX_BINS] = {0};  
+int route[MAX_BINS];  
+int routeCount = 0;  
+float totalDist = 0.0f;
+
